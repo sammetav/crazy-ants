@@ -1,0 +1,16 @@
+# This configuration is intended for development purpose, it's **your** responsibility to harden it for production
+version: '3.7'
+services:
+  ca-postgresql:
+    image: postgres:14.6
+    environment:
+      - POSTGRES_USER=CrazyAnts
+      - POSTGRES_PASSWORD=CrazyAnts
+      - POSTGRES_DB=CrazyAnts
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    # if you want to see all statements, uncomment to following line
+    # command: ["postgres", "-c", "log_statement=all"]
+    # If you want to expose these ports outside your dev PC,
+    # remove the "127.0.0.1:" prefix
+    ports:
+      - 127.0.0.1:5432:5432
