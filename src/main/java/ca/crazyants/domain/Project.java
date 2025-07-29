@@ -1,5 +1,7 @@
 package ca.crazyants.domain;
 
+
+import ca.crazyants.dto.*;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,11 +12,41 @@ public class Project extends AuditEntity {
     private Long id;
 
     @Column
-    private String name;
-
-    @Column
     private String key;
 
     @Column
+    private String name;
+
+    @Column
     private String description;
+
+
+    public Project() {
+    }
+
+    public Project(String name, String key, String description) {
+        this.name = name;
+        this.key = key;
+        this.description = description;
+    }
+
+    public Project setKey(String key) {
+        this.key = key;
+        return this;
+    }
+
+    public Project setName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public Project setDescription(String description) {
+        this.description = description;
+        return this;
+    }
+
+    public ProjectDto toDto() {
+        ProjectDto projectDto = new ProjectDto(this.key, this.name, this.description);
+        return projectDto;
+    }
 }
