@@ -45,6 +45,26 @@ public class Project extends AuditEntity {
         return this;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
     public ProjectDto toDto() {
         ProjectDto projectDto = new ProjectDto(this.key, this.name, this.description);
         return projectDto;
