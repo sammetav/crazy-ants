@@ -1,5 +1,6 @@
 package ca.crazyants.domain;
 
+import ca.crazyants.dto.*;
 import jakarta.persistence.*;
 
 @Entity
@@ -30,5 +31,18 @@ public class Node extends AuditEntity {
 
     public Long getId() {
         return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public NodeDto toDto() {
+        Long projectId = this.project != null ? this.project.getId() : null;
+        return new NodeDto(this.name, projectId);
     }
 }
