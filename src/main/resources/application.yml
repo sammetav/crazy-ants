@@ -7,6 +7,6 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: update  # or "validate", "create", "create-drop"
+      ddl-auto: validate  # or "validate", "create", "create-drop"
     show-sql: true
     database-platform: org.hibernate.dialect.PostgreSQLDialect
